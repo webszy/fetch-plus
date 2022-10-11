@@ -1,0 +1,20 @@
+{
+  "name": "fetchplus",
+  "version": "0.0.1",
+  "author": "web.szy",
+  "homepage": "https://github.com/webszy/fetch-plus",
+  "keywords": [
+    "ajax",
+    "request",
+    "fetch"
+  ],
+  "description": "enhance Fetch API experience",
+  "main": "dist/index.js",
+  "repository": "https://github.com/webszy/fetch-plus.git",
+  "bugs": "https://github.com/webszy/fetch-plus/issues",
+  "license": "MIT",
+  "scripts": {},
+  "devDependencies": {},
+  "dependencies": {},
+  "private": false
+}
