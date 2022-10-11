@@ -1,5 +1,5 @@
 {
-  "name": "fetchplus",
+  "name": "@webszy/fetch-plus",
   "version": "0.0.1",
   "author": "web.szy",
   "homepage": "https://github.com/webszy/fetch-plus",
@@ -13,7 +13,9 @@
   "repository": "https://github.com/webszy/fetch-plus.git",
   "bugs": "https://github.com/webszy/fetch-plus/issues",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "publish": "npm publish --access=public"
+  },
   "devDependencies": {},
   "dependencies": {},
   "private": false
