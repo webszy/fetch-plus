@@ -6,7 +6,8 @@
   "keywords": [
     "ajax",
     "request",
-    "fetch"
+    "fetch",
+    "fetch-plus"
   ],
   "description": "enhance Fetch API experience",
   "main": "dist/index.js",
