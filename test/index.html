@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script src="./dist/FetchPlus.umd.js"></script>
+<script>
+    const {FetchPlus} = window.FetchPlus
+    const { get } = new FetchPlus({
+        withCredentials:true
+    }).getAll()
+    window.onload = async function (){
+        const [err,res] = await get('https://api.npoint.io/96324804127bdb2b7c33')
+        console.log(err,res)
+    }
+
+</script>
+</html>

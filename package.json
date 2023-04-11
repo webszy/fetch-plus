@@ -1,7 +1,7 @@
 {
   "name": "@webszy/fetch-plus",
-  "version": "0.0.1",
-  "author": "web.szy",
+  "version": "0.0.2",
+  "author": "webszy",
   "homepage": "https://github.com/webszy/fetch-plus",
   "keywords": [
     "ajax",
@@ -10,14 +10,35 @@
     "fetch-plus"
   ],
   "description": "enhance Fetch API experience",
-  "main": "dist/index.js",
+  "main": "dist/FetchPlus.es.js",
+  "type": "module",
+  "module": "es/index.js",
+  "browser": "dist/FetchPlus.umd.js",
+  "exports": {
+    ".": {
+      "types": "./types/index.d.ts",
+      "import": "es/index.js",
+      "require": "lib/index.js"
+    },
+    "./*": "./*"
+  },
   "repository": "https://github.com/webszy/fetch-plus.git",
   "bugs": "https://github.com/webszy/fetch-plus/issues",
   "license": "MIT",
   "scripts": {
+    "dev": "yarn run build && copyfiles ./dist/*.js ./demo && http-server ./demo",
+    "build": "rimraf dist es lib && tsc && vite build",
     "publish": "npm publish --access=public"
   },
-  "devDependencies": {},
-  "dependencies": {},
-  "private": false
+  "devDependencies": {
+    "rimraf": "^5.0.0",
+    "typescript": "^5.0.4",
+    "vite": "^4.2.1",
+    "vite-plugin-build": "^0.8.0"
+  },
+  "private": false,
+  "dependencies": {
+    "copyfiles": "^2.4.1",
+    "http-server": "^14.1.1"
+  }
 }
