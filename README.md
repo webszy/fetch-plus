@@ -1,5 +1,7 @@
 # MyFetchPlus
 > 一个fetch的现代化封装
+
+> https://fetch.plus
 # 基本功能
 
 + 以es6 class封装fetch
@@ -21,10 +23,8 @@ or
 
 可以通过import或require引入
 ```javascript
-import {FetchPlus} from 'fetch-plus'
-const http = new FetchPlus({
-	withCredentials:true
-})
+import FetchPlus from 'my-fetch-plus'
+const http = new FetchPlus()
 http.get('xxxx')
 ```
 # TODO

@@ -14,7 +14,6 @@ interface IFetchDetailConfig extends IFetchOptions {
     responseType?: TResType;
 }
 export declare class FetchPlus {
-    private data;
     private credentials;
     private readonly timeout;
     private readonly baseURL;
@@ -45,4 +44,4 @@ export declare class FetchPlus {
         body: undefined;
     };
 }
-export default FetchPlus;
+export {};

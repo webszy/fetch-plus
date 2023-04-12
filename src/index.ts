@@ -18,7 +18,7 @@ type TResType = 'text' | 'json' | 'blob' | 'arrayBuffer' | 'formData' | 'stream'
 interface IFetchOptions {
     baseURL?: string;
     timeout?: number;
-    withCredentials?: boolean | string;
+    withCredentials?: boolean;
 }
 
 interface IFetchResponse {
@@ -41,7 +41,6 @@ interface IFetchDetailConfig extends IFetchOptions {
 }
 
 export class FetchPlus {
-    private data: any;
     private credentials: 'same-origin'|'include'|'omit';
     private readonly timeout: number;
     private readonly baseURL: string;
@@ -301,5 +300,3 @@ export class FetchPlus {
         return configInfo
     }
 }
-
-export default FetchPlus
