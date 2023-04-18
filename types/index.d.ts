@@ -3,7 +3,7 @@ type TResType = 'text' | 'json' | 'blob' | 'arrayBuffer' | 'formData' | 'stream'
 interface IFetchOptions {
     baseURL?: string;
     timeout?: number;
-    withCredentials?: boolean | string;
+    withCredentials?: boolean;
 }
 interface IFetchDetailConfig extends IFetchOptions {
     url?: string;

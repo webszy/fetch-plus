@@ -277,6 +277,7 @@ export class FetchPlus {
                 contentType ='application/octet-stream'
                 break
             case 'arrayBuffer':
+                contentType = 'application/octet-stream'
                 break
             case 'formData':
                 contentType = 'multipart/form-data'

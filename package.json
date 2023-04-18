@@ -28,7 +28,10 @@
   "scripts": {
     "dev": "yarn run build && copyfiles ./dist/*.* ./demo && http-server ./demo",
     "build": "rimraf dist es lib && tsc && vite build",
-    "publish": "npm publish --access=public"
+    "publish": "npm publish --access=public",
+    "docs:dev": "vitepress dev ./docs",
+    "docs:build": "vitepress build ./docs",
+    "docs:preview": "vitepress preview ./docs"
   },
   "devDependencies": {
     "@types/node": "^18.15.11",
@@ -39,6 +42,7 @@
   "private": false,
   "dependencies": {
     "copyfiles": "^2.4.1",
-    "http-server": "^14.1.1"
+    "http-server": "^14.1.1",
+    "vitepress": "^1.0.0-alpha.65"
   }
 }
