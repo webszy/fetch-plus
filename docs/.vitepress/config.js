@@ -4,6 +4,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: "MyFetchPlus文档",
   description: "十年开发总结出来的fetch封装",
+  outDir:'./dist',
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
