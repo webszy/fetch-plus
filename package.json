@@ -1,6 +1,6 @@
 {
   "name": "my-fetch-plus",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "webszy",
   "homepage": "https://github.com/webszy/fetch-plus",
   "keywords": [
@@ -10,15 +10,15 @@
     "fetch-plus"
   ],
   "description": "enhance Fetch API experience",
-  "main": "dist/FetchPlus.es.js",
+  "main": "dist/my-fetch-plus.es.js",
   "type": "module",
-  "module": "es/index.js",
-  "browser": "dist/FetchPlus.umd.js",
+  "module": "dist/my-fetch-plus.es.js",
+  "browser": "dist/my-fetch-plus.umd.js",
   "exports": {
     ".": {
       "types": "./types/index.d.ts",
-      "import": "es/index.js",
-      "require": "lib/index.js"
+      "import":"dist/my-fetch-plus.es.js",
+      "require": "dist/my-fetch-plus.umd.js"
     },
     "./*": "./*"
   },

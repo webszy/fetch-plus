@@ -4,6 +4,7 @@ interface IFetchOptions {
     baseURL?: string;
     timeout?: number;
     withCredentials?: boolean;
+    simplify?: boolean;
 }
 interface IFetchDetailConfig extends IFetchOptions {
     url?: string;
@@ -17,7 +18,9 @@ export declare class FetchPlus {
     private credentials;
     private readonly timeout;
     private readonly baseURL;
+    private simplify;
     constructor(options?: IFetchOptions);
+    get all(): string;
     getAll(): {
         request: (url: string | IFetchDetailConfig, config?: IFetchDetailConfig | undefined) => Promise<unknown>;
         get: (url: string, config?: IFetchDetailConfig | undefined) => Promise<unknown>;
@@ -35,6 +38,7 @@ export declare class FetchPlus {
     delete(url: string, config?: IFetchDetailConfig): Promise<unknown>;
     options(url: string, config?: IFetchDetailConfig): Promise<unknown>;
     head(url: string, config?: IFetchDetailConfig): Promise<unknown>;
+    jsonp(url: string, config?: IFetchDetailConfig): void;
     protected handleParams(params: string[][] | Record<string, any> | string): string | false;
     protected handleConfig(config?: IFetchDetailConfig): {
         method: TMethods;

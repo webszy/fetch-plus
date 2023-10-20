@@ -9,12 +9,12 @@
 <script type="application/javascript" src="./dist/my-fetch-plus.umd.cjs"></script>
 <script>
     const {FetchPlus} = window.FetchPlus
-    const { get } = new FetchPlus({
+    window.req= new FetchPlus({
         withCredentials:true
-    }).getAll()
+    })
     window.onload = async function (){
-        const [err,res] = await get('https://api.npoint.io/96324804127bdb2b7c33')
-        console.log(err,res)
+        // const [err,res] = await get('https://api.npoint.io/96324804127bdb2b7c33')
+        // console.log(err,res)
     }
 
 </script>

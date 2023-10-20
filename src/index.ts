@@ -19,6 +19,7 @@ interface IFetchOptions {
     baseURL?: string;
     timeout?: number;
     withCredentials?: boolean;
+    simplify?:boolean;
 }
 
 interface IFetchResponse {
@@ -44,12 +45,14 @@ export class FetchPlus {
     private credentials: 'same-origin'|'include'|'omit';
     private readonly timeout: number;
     private readonly baseURL: string;
+    private simplify: boolean;
 
     constructor(options?: IFetchOptions) {
         const {
             baseURL='',
             timeout=0,
             withCredentials = true,
+            simplify=false
         } = options ||{}
         this.baseURL = baseURL || ''
 
@@ -62,6 +65,10 @@ export class FetchPlus {
         } else {
             this.credentials = 'same-origin'
         }
+        this.simplify = simplify
+    }
+    get all(){
+        return 'all'
     }
     getAll(){
         return {
@@ -91,7 +98,7 @@ export class FetchPlus {
             targetUrl += search
         }
         const fetchConfig:any = this.handleConfig(config)
-        const baseResponse:IFetchResponse = {
+        const baseResponse = {
             status:-1,
             statusText:'',
             redirected:false,
@@ -99,8 +106,8 @@ export class FetchPlus {
             headers:{},
             config:fetchConfig,
             mode:'cors'
-        }
-        if (typeof window.AbortController === 'function') {
+        } as IFetchResponse
+        if (typeof (window as any).AbortController === 'function') {
             if(this.timeout>0){
                 const controller = new AbortController();
                 const signal = controller.signal;
@@ -148,7 +155,7 @@ export class FetchPlus {
             if(this.timeout>0){
                 setTimeout(() => reject(new Error('timeout')), this.timeout);
             }
-            return window.fetch(targetUrl,fetchConfig)
+            return  (window as any).fetch(targetUrl,fetchConfig)
                 .then((res:any)=>{
                     const type = config?.responseType ?? 'json'
                     let data = null
@@ -178,11 +185,11 @@ export class FetchPlus {
                             return res.blob()
                     }
                 })
-                .then(data=>{
+                .then((data:any)=>{
                     baseResponse.data = data
                     return [null,baseResponse]
                 })
-                .catch(err=>[err,null])
+                .catch((err:any)=>[err,null])
         })
     }
 
@@ -242,6 +249,9 @@ export class FetchPlus {
             init.method='HEAD'
         }
         return this.sendRequest(url, config)
+    }
+    jsonp(url: string, config?: IFetchDetailConfig){
+
     }
     protected handleParams(params: string[][] | Record<string, any> | string) {
         if (!params) {
