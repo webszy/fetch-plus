@@ -8,7 +8,7 @@ interface IFetchOptions {
 }
 interface IFetchDetailConfig extends IFetchOptions {
     url?: string;
-    method: TMethods;
+    method?: TMethods;
     headers?: Record<string, string>;
     params?: string[][] | Record<string, any> | string;
     data?: any;
